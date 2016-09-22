@@ -193,6 +193,8 @@ public class TranslatorX86<InstructionType extends IInstruction> implements
       translators.put("repne scasd", new RepneTranslator(new ScasGenerator(), OperandSize.DWORD));
       translators.put("ret", new RetnTranslator());
       translators.put("retn", new RetnTranslator());
+      // rep retn is a compiler optimization for the branch predictor
+      translators.put("rep retn", new RetnTranslator());
       translators.put("rcl", new RclTranslator());
       translators.put("rcr", new RcrTranslator());
       translators.put("rol", new RolTranslator());
